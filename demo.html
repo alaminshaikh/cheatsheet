@@ -10,40 +10,23 @@
     <ul id="fileList"></ul>
 
     <script>
-        // Function to load file contents into a div
-        function loadFileContent(filename) {
-            fetch(filename)
-                .then(response => response.text())
-                .then(data => {
-                    document.getElementById('fileContent').innerText = data;
-                });
-        }
-
         // Function to generate the file list
         function generateFileList() {
             const fileList = document.getElementById('fileList');
 
-            // Add your directory path here
-            const directoryPath = 'txtcodes/';
+            // GitHub username and repository name
+            const username = 'alaminshaikh';
+            const repo = 'cheatsheet';
 
-            fetch(directoryPath)
-                .then(response => response.text())
+            fetch(`https://api.github.com/repos/${alaminshaikh}/${cheetsheet}/contents/txtcodes`)
+                .then(response => response.json())
                 .then(data => {
-                    // Split the HTML response into lines
-                    const lines = data.split('\n');
+                    data.forEach(file => {
+                        const filename = file.name;
+                        const listItem = document.createElement('li');
+                        listItem.textContent = filename;
 
-                    // Iterate through the lines and add filenames to the list
-                    lines.forEach(line => {
-                        const filename = line.trim();
-                        if (filename) {
-                            const listItem = document.createElement('li');
-                            listItem.textContent = filename;
-
-                            // Add a click event to load the file content when clicked
-                            listItem.addEventListener('click', () => loadFileContent(filename));
-
-                            fileList.appendChild(listItem);
-                        }
+                        fileList.appendChild(listItem);
                     });
                 });
         }
