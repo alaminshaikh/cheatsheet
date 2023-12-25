@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Index</title>
+</head>
+<body>
+    <h1>File Index</h1>
+    <ul id="fileList"></ul>
+
+    <script>
+        // Function to load file contents into a div
+        function loadFileContent(filename) {
+            fetch(filename)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('fileContent').innerText = data;
+                });
+        }
+
+        // Function to generate the file list
+        function generateFileList() {
+            const fileList = document.getElementById('fileList');
+
+            // Add your directory path here
+            const directoryPath = '/txtcodes';
+
+            fetch(directoryPath)
+                .then(response => response.text())
+                .then(data => {
+                    // Split the HTML response into lines
+                    const lines = data.split('\n');
+
+                    // Iterate through the lines and add filenames to the list
+                    lines.forEach(line => {
+                        const filename = line.trim();
+                        if (filename) {
+                            const listItem = document.createElement('li');
+                            listItem.textContent = filename;
+
+                            // Add a click event to load the file content when clicked
+                            listItem.addEventListener('click', () => loadFileContent(filename));
+
+                            fileList.appendChild(listItem);
+                        }
+                    });
+                });
+        }
+
+        // Call the function when the page loads
+        window.onload = generateFileList;
+    </script>
+</body>
+</html>
