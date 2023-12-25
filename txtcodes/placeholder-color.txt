@@ -1,0 +1,21 @@
+/* Reset default form styles */
+            .p-red::placeholder{
+                /*opacity: 1;*/
+                color: red;
+            }
+            .p-red:-ms-input-placeholder{
+                color: red;
+                
+            }
+            .p-red::-webkit-input-placeholder {
+                color: red;
+             
+            }
+            
+            if ($("textarea[name='requirement']").val() == ""){
+                
+                $('textarea[name="requirement"]').addClass('p-red');
+                $('textarea[name="requirement"]').attr('placeholder', '*Please enter your requirements');
+                // Change placeholder color
+            
+            }

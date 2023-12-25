@@ -1,0 +1,3 @@
+$.post("product-wishlist-push.php", { w_array: w_array, id: pid }, function(x) {
+            console.log(x);
+        });

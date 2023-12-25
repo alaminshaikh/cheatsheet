@@ -1,0 +1,4 @@
+let originalText = "This is some example text.";
+let textToRemove = "example ";
+
+let newText = originalText.replace(textToRemove, '');

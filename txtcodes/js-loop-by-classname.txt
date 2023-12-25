@@ -1,0 +1,4 @@
+document.querySelectorAll(".video").forEach(function(videoElement) {
+            videoElement.style.transform = "translate("+video_translate+"px)";
+            }); 
+        

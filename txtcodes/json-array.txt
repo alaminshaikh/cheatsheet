@@ -1,0 +1,198 @@
+//get list
+<?php 
+require_once("conn.php");
+$lt = $_COOKIE['hi_user'];
+$sql = "SELECT wishlist FROM hi_users WHERE login_token = '$lt'";
+$result = $conn->query($sql);
+if($result){
+    if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {
+        $list = json_encode($row['wishlist'], true);
+        print_r($list);
+            }
+        } else {
+            echo "none";
+        }
+}
+$conn->close();
+?>
+
+------------------------------
+
+let index;
+let present = false;
+$(document).ready(function(){
+    load();
+    // Make an AJAX request to get JSON data
+    fetch('get-wishlist.php')
+      .then(response => response.json())
+      .then(data => {
+    // Process the JSON data
+    
+    console.log(data);
+    load_stop();
+        if(data != "" && data != "[]"){
+            wishlist = true;
+            w_array = data;
+            var ar = JSON.parse(data)
+            var elementToFind = "<?php echo $_GET['id']?>";
+            index = ar.indexOf(elementToFind);
+            if (index !== -1) {
+                present = true;
+                $('#wish-pic').attr("src","img/icons/check.png");
+                $('#wish-line').text("In your Wishlist");
+                
+              console.log(`Element ${elementToFind} found at index ${index}`);
+            } else {
+                $('#wish-pic').attr("src","img/icons/wishlist.png");
+                $('#wish-line').text("Add to Wishlist");
+              console.log(`Element ${elementToFind} not found`);
+            }
+
+        }
+    })
+    .catch(error => {
+    // Handle errors
+    console.error('Error:', error);
+    });
+
+});
+
+------------------------------
+
+function load(){
+    $('#wish-img').css("display","none");
+    $('.loader').css("display","block");
+}
+
+function load_stop(){
+    $('#wish-img').css("display","block");
+    $('.loader').css("display","none");
+}
+
+------------------------------
+
+function add_remove(){
+    if(present == false){
+        load();
+        wishlist_add();    
+    }else{
+        load();
+        remove_array();
+    }
+}
+
+------------------------------
+
+function wishlist_add(){
+    if(wishlist){
+        $.post("product-wishlist-push.php", { w_array: w_array, id: pid }, function(x) {
+            console.log(x);
+            present = true;
+            $('#wish-pic').attr("src","img/icons/check.png");
+            $('#wish-line').text("In your Wishlist");
+            load_stop();
+            showToast('Item added to your Wishlist');
+        });
+    }else{
+        $.get("product-wishlist.php?id=<?php echo $_GET['id']?>", function(x)
+            {
+                present = true;
+                $('#wish-pic').attr("src","img/icons/check.png");
+                $('#wish-line').text("In your Wishlist");
+                load_stop();
+                console.log(x);
+                showToast('Item added to your Wishlist');
+            }); 
+    }
+}
+
+------------------------------
+
+function remove_array(){
+    $.post("product-wishlist-remove.php", { w_array: w_array, id: pid }, function(x) {
+            console.log(x);
+            
+            present = false;
+            $('#wish-pic').attr("src","img/icons/wishlist.png");
+            $('#wish-line').text("Add to Wishlist");
+            load_stop();
+            showToast('Item removed from Wishlist');
+        });
+}
+
+
+-------------------------------
+
+// first item add
+<?php
+require_once("conn.php");
+$lt = $_COOKIE['hi_user'];
+$id = $_GET['id'];
+$array = [$id];
+$listJSON = json_encode($array);
+$sql = "UPDATE hi_users SET wishlist = '$listJSON' WHERE login_token = '$lt'";
+$result = $conn->query($sql);
+if($result){
+    echo "updated";
+}else{
+    echo $conn->error;
+}
+$conn->close();
+?>
+
+----------------------------------
+//add more items
+<?php
+$id = $_POST['id'];
+$w_array = json_decode($_POST['w_array']);
+print_r($w_array);
+array_push($w_array, $id);
+$new = json_encode($w_array);
+require_once("conn.php");
+$lt = $_COOKIE['hi_user'];
+$sql = "UPDATE hi_users SET wishlist = '$new' WHERE login_token = '$lt'";
+$result = $conn->query($sql);
+if($result){
+    echo "added";
+}else{
+    echo $conn->error;
+}
+$conn->close();
+?>
+----------------------------------
+//remove an item
+<?php
+function findAndDelete($array, $element) {
+    $key = array_search($element, $array);
+    if ($key !== false) {
+        unset($array[$key]);
+    }
+    return $array;
+}
+
+
+
+
+$id = $_POST['id'];
+$w_array = json_decode($_POST['w_array']);
+print_r($w_array);
+
+$elementToDelete = $id;
+$resultArray = findAndDelete($w_array, $elementToDelete);
+
+
+
+
+$new = json_encode($resultArray);
+require_once("conn.php");
+$lt = $_COOKIE['hi_user'];
+$sql = "UPDATE hi_users SET wishlist = '$new' WHERE login_token = '$lt'";
+$result = $conn->query($sql);
+if($result){
+    echo "deleted";
+}else{
+    echo $conn->error;
+}
+$conn->close();
+?>

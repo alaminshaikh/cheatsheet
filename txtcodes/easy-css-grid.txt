@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Layout Example</title>
+<style>
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    grid-template-areas:
+      "large small1"
+      "large small2";
+  }
+  
+  .large {
+    grid-area: large;
+    background-color: #3498db;
+    height: 200px;
+  }
+
+  .small1 {
+    grid-area: small1;
+    background-color: #e74c3c;
+    height: 100px;
+  }
+
+  .small2 {
+    grid-area: small2;
+    background-color: #2ecc71;
+    height: 100px;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <div class="large">Large Div</div>
+    <div class="small1">Small Div 1</div>
+    <div class="small2">Small Div 2</div>
+  </div>
+</body>
+</html>

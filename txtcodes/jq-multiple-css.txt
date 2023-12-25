@@ -1,0 +1,6 @@
+$(".element").css({
+      "width": "150px",
+      "height": "150px",
+      "background-color": "blue",
+      "margin": "50px"
+    });

@@ -1,0 +1,5 @@
+$('.help-heading').eq(0).css("background", "red");
+$('#msg-div').text("Are you sure you want to delete this product?");
+$('input[name="otp"]').addClass('p-red');
+$('input[name="otp"]').val("");
+$('input[name="otp"]').attr('placeholder', '*Wrong OTP entered');

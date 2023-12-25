@@ -1,0 +1,28 @@
+function showToast(message) {
+  const toast = document.getElementById('toast');
+  toast.innerText = message;
+  toast.style.display = 'block';
+
+  setTimeout(() => {
+    toast.style.display = 'none';
+  }, 2500); // Hide after 3 seconds
+}
+
+showToast('Item added to your Wishlist');
+
+  #toast {
+  display: none;
+  position: fixed;
+  bottom: 40vh;
+  width: max-content;
+  left: 50%;
+  font-size: 12px;
+  transform: translateX(-50%);
+  background-color: #fff;
+  color: #444;
+  padding: 8px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+}
+
+<div id="toast">Done</div>

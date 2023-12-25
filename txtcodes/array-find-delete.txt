@@ -1,0 +1,19 @@
+<?php
+// Sample array
+$myArray = array("apple", "banana", "cherry", "date");
+
+// Function to find and delete an element
+function findAndDelete($array, $element) {
+    $key = array_search($element, $array);
+    if ($key !== false) {
+        unset($array[$key]);
+    }
+    return $array;
+}
+
+// Usage example
+$elementToDelete = "banana";
+$resultArray = findAndDelete($myArray, $elementToDelete);
+
+print_r($resultArray);
+?>

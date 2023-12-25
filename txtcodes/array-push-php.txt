@@ -1,0 +1,2 @@
+$myArray = [42];
+array_push($myArray, 43);

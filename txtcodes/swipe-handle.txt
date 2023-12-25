@@ -1,0 +1,30 @@
+<div id="swipeElement"></div>
+#swipeElement {
+  width: 100px;
+  height: 100px;
+  background-color: #ccc;
+}
+let startSwipeX = null;
+let endSwipeX = null;
+
+const swipeElement = document.getElementById('swipeElement');
+
+swipeElement.addEventListener('touchstart', (e) => {
+  startSwipeX = e.touches[0].clientX;
+});
+
+swipeElement.addEventListener('touchend', (e) => {
+  endSwipeX = e.changedTouches[0].clientX;
+  handleSwipe();
+});
+
+function handleSwipe() {
+  const swipeDistance = endSwipeX - startSwipeX;
+  if (swipeDistance > 50) {
+    // This means it was a right swipe
+    console.log('Right swipe detected!');
+  } else if (swipeDistance < -50) {
+    // This means it was a left swipe
+    console.log('Left swipe detected!');
+  }
+}

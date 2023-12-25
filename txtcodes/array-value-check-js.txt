@@ -1,0 +1,11 @@
+// Assuming wishlist is an array
+var wishlist = ['item1', 'item2', 'item3'];
+
+// Value to check
+var valueToCheck = 'item2';
+
+if (wishlist.includes(valueToCheck)) {
+    console.log(valueToCheck + ' is in the wishlist!');
+} else {
+    console.log(valueToCheck + ' is not in the wishlist.');
+}

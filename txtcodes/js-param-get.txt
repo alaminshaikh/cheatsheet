@@ -1,0 +1,14 @@
+function getQueryParam(paramName) {
+  const urlParams = new URLSearchParams(window.location.search);
+  const paramValue = urlParams.get(paramName);
+
+  return paramValue !== null ? paramValue : false;
+}
+
+
+const paramValue = getQueryParam('example');
+if (paramValue !== false) {
+  console.log('Parameter value:', paramValue);
+} else {
+  console.log('Parameter does not exist');
+}

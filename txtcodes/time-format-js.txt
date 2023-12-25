@@ -1,0 +1,21 @@
+function convertToAMPM(dateString) {
+    var dateParts = dateString.split(/[- :]/);
+    var date = new Date(dateParts[0], dateParts[1] - 1, dateParts[2], dateParts[3], dateParts[4]);
+
+    var hours = date.getHours();
+    var minutes = date.getMinutes();
+    var ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12;
+    minutes = minutes < 10 ? '0' + minutes : minutes;
+
+    var formattedTime = hours + ':' + minutes + ' ' + ampm;
+    var formattedDate = ('0' + date.getDate()).slice(-2) + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear();
+
+    return formattedDate + ' ' + formattedTime;
+}
+
+// Usage:
+var inputDate = '2023-09-21 14:13:00';
+var ampmDate = convertToAMPM(inputDate);
+console.log(ampmDate); // Output: '21-09-2023 2:13 PM'

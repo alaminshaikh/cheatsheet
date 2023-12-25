@@ -1,0 +1,69 @@
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+$(document).ready(function() {
+    $.ajax({
+        url: 'get-company-data.php',
+        type: 'GET',
+        dataType: 'json', // Specify that the expected response is JSON
+        success: function(response) {
+            // Assuming response is an array of objects
+            for (var i = 0; i < response.length; i++) {
+                var c_name = response[i].c_name;
+                var email = response[i].email;
+                var city = response[i].city;
+                var state = response[i].state;
+                var address = response[i].address;
+                var pin = response[i].pin;
+            
+                
+                $('#c_name').html(c_name);
+                $('#c_name-2').html(c_name);
+                $('#c-email').html("email : " + email);
+                $('#pin').html("Pin - "+pin);
+                $('#state').html(state);
+                $('#city-state').html(city+", "+state);
+                $('#address').html(address);
+                
+                $('#city').html(city);
+            }
+        },
+        error: function() {
+                // $('#total-invest').html('Error retrieving wallet information.');
+            }
+        });
+    });
+
+
+<?php
+require_once("conn.php");
+
+// Retrieve the value of the 'ibmuser' cookie
+$login_token = $_COOKIE['hi_user'];
+//  email 	c_name 	c_logo 	address 	city 	state 	pin 	role 	role_type 	joined 	
+// Prepare the SQL statement using a placeholder
+$sql = "SELECT * FROM hi_users WHERE login_token = '$login_token'";
+$result = $conn->query($sql);
+
+$responseData = array(); // Initialize an array to hold response data
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        $blist = array(
+            'c_name' => $row['c_name'],
+            'email' => $row['email'],
+            'address' => $row['address'],
+            'city' => $row['city'],
+            'pin' => $row['pin'],
+            'state' => $row['state'],
+        );
+        array_push($responseData, $blist);
+    }
+}
+
+
+$conn->close();
+
+// Send the response data as JSON
+header('Content-Type: application/json');
+echo json_encode($responseData);
+?>
