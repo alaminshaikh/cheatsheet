@@ -24,7 +24,7 @@
                     data.forEach(file => {
                         const filename = file.name;
                         const listItem = document.createElement('li');
-                        listItem.textContent = '<a href="txtcodes/'+filename+'">'+filename+'</a>';
+                        listItem.innerHTML = '<a href="txtcodes/'+filename+'" target="_blank">'+filename+'</a>';
 
                         fileList.appendChild(listItem);
                     });
