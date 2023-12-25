@@ -1,0 +1,14 @@
+$(document).ready(function() {
+    // Your code here
+    console.log('Document is ready!');
+
+    // You can perform any jQuery operations or vanilla JavaScript code here.
+});
+
+// Shorthand for $(document).ready()
+$(function() {
+    // Your code here
+    console.log('Document is ready with shorthand syntax!');
+
+    // You can perform any jQuery operations or vanilla JavaScript code here.
+});

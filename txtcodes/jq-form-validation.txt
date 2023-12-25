@@ -1,0 +1,54 @@
+let all_value = true;
+	function single_validate(input){
+            if( $(input).val() == "" || $(input).val() === null){
+                $(input).addClass('p-red');
+                $(input).attr('placeholder', 'Please enter a value');
+                all_value = false;
+                // console.log(input+" empty");
+            }else{
+                $(input).removeClass('p-red');
+                // console.log(input+" value: "+$(input).val());
+            }
+        }
+function form_validate(){
+            all_value = true;
+            single_validate('#inputFname');
+            single_validate('#inputLname');
+            single_validate('#country');
+            single_validate('#date');
+            single_validate('#month');
+            single_validate('#year');
+            // console.log($('input[name="gender"]:checked').length);
+            if( $('input[name="gender"]:checked').length == 0){
+                $('.custom-radio').css('border', '1px solid red');
+                all_value = false;
+            }else{
+                $('.custom-radio').css('border', 'none');
+                gender= $('input[name="gender"]:checked').val();
+            }
+            single_validate('#inputPass');
+            if(all_value){
+                console.log("all-filled");
+                $('#fill').css("display","none");
+                save_json();
+                password = $('#inputPass').val();
+                $.post("data-upload.php", { password: password }, function(x) {
+                    console.log(x);
+                });
+            }else{
+                console.log("some-empty");
+                $('#fill').css("display","block");
+            }
+        }
+        
+        $('input').on('focus', function() {
+          $('#'+this.id).removeClass('p-red');
+        });
+        
+        $('input[type="radio"]').on('change', function() {
+          $('.custom-radio').css('border', 'none');
+        });
+        
+        $('select.form-control').on('change', function() {
+          $('#'+this.id).removeClass('p-red');
+        });

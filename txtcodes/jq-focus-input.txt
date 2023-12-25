@@ -1,0 +1,11 @@
+	$('input').on('focus', function() {
+          $('#'+this.id).removeClass('p-red');
+        });
+        
+        $('input[type="radio"]').on('change', function() {
+          $('.custom-radio').css('border', 'none');
+        });
+        
+        $('select.form-control').on('change', function() {
+          $('#'+this.id).removeClass('p-red');
+        });

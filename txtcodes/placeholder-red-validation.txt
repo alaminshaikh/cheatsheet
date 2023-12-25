@@ -1,0 +1,18 @@
+if ($("input[name='product']").val() == ""){            
+            $('input[name="product"]').addClass('p-red');
+            $('input[name="product"]').attr('placeholder', '*Please enter a product name');
+            // Change placeholder color      
+}
+
+.p-red::placeholder{
+    opacity: 1;
+    color: red;
+}
+.p-red:-ms-input-placeholder{
+    color: red;
+    
+}
+.p-red::-webkit-input-placeholder {
+    color: red;
+ 
+}

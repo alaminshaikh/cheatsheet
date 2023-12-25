@@ -1,0 +1,31 @@
+	function json_submit(){
+            $.ajax({
+                type: "POST",
+                url: "data-upload.php",
+                data: { json_data: jsonString },
+                success: function(response) {
+                    console.log("Data sent successfully:", response);
+                }
+            });
+        }
+
+
+
+
+<?php
+date_default_timezone_set('Asia/Kolkata');
+// Retrieve the JSON string from the POST data
+$jsonString = $_POST['json_data'];
+
+// Decode the JSON string to a PHP associative array
+$decodedData = json_decode($jsonString, true);
+
+// Process the data as needed
+// For example, you can access individual elements like $decodedData['name']
+
+// Send a response back if needed
+echo json_encode(['status' => 'success']);
+echo $decodedData['first_name'];
+echo $decodedData['last_name'];
+echo $decodedData['password'];
+?>

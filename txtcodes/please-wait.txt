@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .loading-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .loading-text {
+            font-size: 18px;
+            margin-right: 10px;
+        }
+
+        .loading-spinner::before {
+            content: "";
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: 2px solid #3498db; /* You can change the color */
+            border-top: 2px solid transparent;
+            animation: spin 1s linear infinite;
+            margin-bottom: 2px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+    <title>Please Wait</title>
+</head>
+<body>
+
+    <div class="loading-container">
+        <div class="loading-text">Please wait...</div>
+        <div class="loading-spinner"></div>
+    </div>
+
+</body>
+</html>

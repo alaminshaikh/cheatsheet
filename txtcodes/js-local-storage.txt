@@ -1,0 +1,53 @@
+localStorage.setItem('username', 'JohnDoe');
+
+//get
+var username = localStorage.getItem('username');
+console.log(username);  // Outputs: JohnDoe
+
+//remove
+localStorage.removeItem('username');
+
+
+//clear
+localStorage.clear();
+
+
+// Storing JSON data
+var userObject = {
+  username: 'JohnDoe',
+  email: 'john@example.com',
+  age: 25
+};
+
+var jsonString = JSON.stringify(userObject);
+localStorage.setItem('user', jsonString);
+
+// Retrieving JSON data
+var storedData = localStorage.getItem('user');
+var parsedData = JSON.parse(storedData);
+
+console.log(parsedData.username);  // Outputs: JohnDoe
+console.log(parsedData.email);     // Outputs: john@example.com
+console.log(parsedData.age);       // Outputs: 25
+
+
+// Get JSON data from Local Storage
+var storedData = localStorage.getItem('user');
+var userObject = JSON.parse(storedData);
+
+// Modify or add a new key
+userObject.age = 26;  // Modifying the 'age' key
+userObject.newKey = 'Some new value';  // Adding a new key
+
+// Store the modified JSON data back in Local Storage
+localStorage.setItem('user', JSON.stringify(userObject));
+
+// Logging the modified data
+console.log(userObject);
+
+
+// Deleting a key
+delete userObject.email;
+
+// Store the modified JSON data back in Local Storage
+localStorage.setItem('user', JSON.stringify(userObject));
