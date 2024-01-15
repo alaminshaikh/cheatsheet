@@ -1,0 +1,14 @@
+    // Step 1: Create a new <div> element
+    var newDiv = document.createElement('div');
+
+    // Step 2: Set attributes, including the id
+    newDiv.setAttribute('class', 'my-class');
+    newDiv.setAttribute('id', 'new-div'); // Set the id attribute to 'new-div'
+    //newDiv.id = 'new-div'; // Set the id directly
+
+    // Step 3: Create text content or other child elements
+    var newText = document.createTextNode('This is a dynamically created element.');
+
+    // Step 4: Append the new element to the body
+    newDiv.appendChild(newText);
+    document.body.appendChild(newDiv);
