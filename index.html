@@ -34,8 +34,8 @@
                 .then(data => {
                     data.forEach(file => {
                         const filename = file.name;
-                        const listItem = document.createElement('li');
-                        listItem.innerHTML = '<a href="txtcodes/'+filename+'" target="_blank">'+filename+'</a>';
+                        const listItem = document.createElement('span');
+                        listItem.innerHTML = '<a href="txtcodes/'+filename+'" target="_blank">'+'&bull;'+filename+'</a>';
 
                         MainDiv.appendChild(listItem);
                     });
