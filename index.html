@@ -34,6 +34,7 @@
             // GitHub username and repository name
             const username = 'alaminshaikh';
             const repo = 'cheatsheet';
+            var count = 1;
 
             fetch(`https://api.github.com/repos/${username}/${repo}/contents/txtcodes`)
                 .then(response => response.json())
@@ -41,8 +42,8 @@
                     data.forEach(file => {
                         const filename = file.name;
                         const listItem = document.createElement('span');
-                        listItem.innerHTML = '<a href="txtcodes/'+filename+'" target="_blank">'+'&bull;'+filename+'</a>';
-
+                        listItem.innerHTML = '<a href="txtcodes/'+filename+'" target="_blank">'+count+'&bull;'+' '+filename+'</a>';
+                        count +=1;
                         MainDiv.appendChild(listItem);
                     });
                 });
