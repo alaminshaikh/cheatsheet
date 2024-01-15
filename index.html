@@ -15,7 +15,7 @@
 </head>
 <body>
     <h2>Cheatsheet by Alamin Shaikh</h2>
-    <div class="l-row">
+    <div id="main-div" class="l-row">
         <ul id="fileList"></ul>
     </div>
     
@@ -24,7 +24,7 @@
         // Function to generate the file list
         function generateFileList() {
             const fileList = document.getElementById('fileList');
-
+            const MainDiv  = document.getElementById('main-div');
             // GitHub username and repository name
             const username = 'alaminshaikh';
             const repo = 'cheatsheet';
@@ -37,7 +37,7 @@
                         const listItem = document.createElement('li');
                         listItem.innerHTML = '<a href="txtcodes/'+filename+'" target="_blank">'+filename+'</a>';
 
-                        fileList.appendChild(listItem);
+                        MainDiv.appendChild(listItem);
                     });
                 });
         }
