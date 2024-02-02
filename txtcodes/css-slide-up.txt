@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slide-Up Animation</title>
+<style>
+
+  .slide-up {
+    opacity: 0;
+    transform: translateY(100%);
+    animation: slideUp 1s forwards;
+  }
+
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
+</head>
+<body>
+<div class="slide-up">
+  <h1>Welcome!</h1>
+  <p>This content will slide up when the page loads.</p>
+</div>
+</body>
+</html>
