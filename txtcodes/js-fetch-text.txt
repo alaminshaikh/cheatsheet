@@ -1,0 +1,23 @@
+function updateShort(x){
+    fetch('update-short.php?short='+x+'&id='+rec_id)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text(); // Extract the text from the response
+    })
+    .then(textData => {
+        // Do something with the text data
+        console.log(textData);
+        if(textData == "updated"){
+            alert("Link updated (Reload Page to see)");
+        }else{
+            alert("Something went wrong!");
+        }
+    })
+    .catch(error => {
+        // Handle any errors
+        console.error('There was a problem with the fetch operation:', error);
+        alert("Something went wrong!");
+    });
+}

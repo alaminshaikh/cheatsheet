@@ -1,0 +1,23 @@
+function editShort(){
+    let userInput = prompt("Enter new short ID: (no spaces)");
+    if (userInput !== null) {
+        if(userInput === ""){
+            alert("Enter a value!");
+        }else{
+            updateShort(userInput);
+        }
+    } else{
+        // alert("You cancelled the prompt."); // Display a message if the user cancels the prompt
+    }
+}
+
+function deleteLink(){
+    var result = confirm("Please confirm if you want to proceed?");
+    if (result) {
+        deleteLinkFinal();
+    } else {
+        // alert("Delete cancelled");
+        // Do something if the user clicked 'No'
+        console.log("User clicked 'No'");
+    }
+}

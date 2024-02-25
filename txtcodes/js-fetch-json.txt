@@ -1,0 +1,39 @@
+function ipall_fetch() {
+    fetch('ip-get.php?short=' + res[arr_id].short)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            document.getElementById("loader").style.display = "none";
+            return response.json(); // Parse the JSON response
+        })
+        .then(data => {
+            // Do something with the parsed JSON data
+            console.log(data);
+            document.getElementById("ipbox").innerHTML = "";
+            // Example: Display IP addresses and their corresponding details
+            var count = 1;
+            console.log(data.length);
+            if (data.length === 0) {
+                document.getElementById("ipbox").innerHTML += "No data found";
+            } else {
+                data.forEach(entry => {
+                    document.getElementById("ipbox").innerHTML +=
+                        `<div class="ip">
+                            <div class="ipsr">${count}</div>
+                            <div class="ipaddress">${entry.ip_address} ${entry.flag_emoji}</div>
+                            <div class="ipdate">${entry.created}</div>
+                        </div>`
+                        ;
+                    count += 1;
+                    console.log('IP Address:', entry.flag_emoji);
+                    // console.log('Created:', entry.created);
+                });
+            }
+        })
+        .catch(error => {
+            // Handle any errors
+            document.getElementById("loader").style.display = "none";
+            console.error('There was a problem with the fetch operation:', error);
+        });
+}

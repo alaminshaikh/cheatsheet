@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+<style> 
+body {
+  background: #f1f1f1;
+  font-family: "Poppins", sans-serif;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.fa {
+  border-radius: 50%;
+  border: 2px solid #FFF;
+  height: 40px;
+  width: 40px;
+  line-height: 40px;
+  margin-right: 10px;
+  text-align: center;
+}
+
+.gradient__text {
+  background: linear-gradient(45deg, #f47d0d, #0621e0);
+  letter-spacing: 10px;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.gradient__row {
+  margin-bottom: 50px;
+}
+.gradient__row--style-1 .gradient__btn {
+  border-radius: 50px;
+  box-shadow: 5px 5px 2px -2px #a5a5a5;
+  color: #FFF;
+  display: inline-block;
+  height: 70px;
+  line-height: 70px;
+  margin: 10px;
+  padding-left: 20px;
+  width: 180px;
+}
+.gradient__row--style-2 .gradient__btn {
+  border-radius: 50px;
+  box-shadow: 5px 8px 10px -2px rgba(253, 29, 29, 0.35);
+  color: #FFF;
+  display: inline-block;
+  font-weight: 500;
+  height: 70px;
+  line-height: 70px;
+  margin: 10px;
+  width: 200px;
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+}
+.gradient__row--style-2 .gradient__btn:after {
+  content: "";
+  border: 2px solid #fff;
+  border-radius: 50px;
+  height: 55px;
+  width: calc(100% - 20px);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.gradient__row--style-3 .gradient__btn {
+  border-radius: 10px;
+  color: #FFF;
+  display: inline-block;
+  margin: 20px;
+  line-height: 60px;
+  height: 60px;
+  width: 250px;
+  position: relative;
+  text-align: center;
+}
+.gradient__row--style-3 .gradient__btn::after {
+  content: "";
+  border-radius: 10px;
+  filter: blur(20px);
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+}
+
+.gradient__btn-1 {
+  background: linear-gradient(to right top, #fdbe25, #fec928, #ffd42b, #ffdf31, #ffea37);
+}
+
+.gradient__btn-2 {
+  background: linear-gradient(to right top, #fab823, #f9a315, #f68d0c, #f3770d, #ee5f13);
+}
+
+.gradient__btn-3 {
+  background: linear-gradient(to right top, #eb4f12, #e74717, #e23f1b, #de361e, #d92d21);
+}
+
+.gradient__btn-4 {
+  background: linear-gradient(to right top, #ed433f, #df3a37, #d2302f, #c42627, #b71b1f);
+}
+
+.gradient__btn-5 {
+  background: linear-gradient(to right top, #b71c24, #c41c3c, #cf2154, #d72c6d, #db3a86);
+}
+
+.gradient__btn-6 {
+  background: linear-gradient(to top, #d83f91, #d0409b, #c743a5, #bb47af, #ae4bb8);
+}
+
+.gradient__btn-7 {
+  background: linear-gradient(to top, #a94bb9, #9b46b7, #8d42b5, #7d3eb2, #6d3ab0);
+}
+
+.gradient__btn-8 {
+  background: linear-gradient(to top, #5540cd, #493fc7, #3c3ec0, #2e3dba, #1e3bb3);
+}
+
+.gradient__btn-9 {
+  background: linear-gradient(to top, #1c3eb4, #154cbd, #1059c6, #1266ce, #1b73d5);
+}
+
+.gradient__btn-10 {
+  background: linear-gradient(to top, #4292ff, #388cff, #2e86ff, #2380ff, #177aff);
+}
+
+.gradient__btn-11 {
+  background: linear-gradient(to right, #11998e, #38ef7d);
+}
+
+.gradient__btn-12 {
+  background: linear-gradient(to right, #aaffa9, #11ffbd);
+}
+
+.gradient__btn-13 {
+  background: linear-gradient(to right, #348f50, #56b4d3);
+}
+
+.gradient__btn-14 {
+  background: linear-gradient(to right, #403b4a, #bbbbb4);
+}
+
+.gradient__btn-15 {
+  background: linear-gradient(90deg, #833ab4 0%, #fd1d1d 50%, #fcb045 100%);
+}
+
+.gradient__btn-16 {
+  background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+}
+
+.gradient__btn-17 {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+}
+
+.gradient__btn-18 {
+  background: linear-gradient(to right, #fc5c7d, #6a82fb);
+}
+
+.gradient__btn-19 {
+  background: linear-gradient(to right, #fc00ff, #00dbde);
+}
+.gradient__btn-19:after {
+  background: linear-gradient(to right, #fc00ff, #00dbde);
+}
+
+.gradient__btn-20 {
+  background: linear-gradient(to right, #C6EA8D, #FE90AF);
+}
+.gradient__btn-20:after {
+  background: linear-gradient(to right, #C6EA8D, #FE90AF);
+}
+
+.gradient__btn-21 {
+  background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+}
+.gradient__btn-21:after {
+  background: linear-gradient(to right, #8a2387, #e94057, #f27121);
+}
+</style>
+</head>
+<body>
+
+<div class="gradient">
+    <h1 class="gradient__text">Gradient Buttons</h1>
+    <div class="gradient__row gradient__row--style-1">
+      <div class="gradient__btn gradient__btn-1">
+          <i class="fa fa-ban"></i>
+          <span>Ban</span>
+      </div>
+      <div class="gradient__btn gradient__btn-2">
+         <i  class="fa fa-bug"></i>
+         <span>Bug</span>
+      </div>
+      <div class="gradient__btn gradient__btn-3">
+         <i class="fa fa-search"></i>
+         <span>Search</span>
+      </div>
+      <div class="gradient__btn gradient__btn-4">
+         <i class="fa fa-warning"></i>
+         <span>Warning</span>
+      </div>
+      <div class="gradient__btn gradient__btn-5">
+         <i class="fa fa-remove"></i>
+         <span>Remove</span>
+      </div>
+      <div class="gradient__btn gradient__btn-6">
+         <i class="fa fa-reply"></i>
+         <span>Reply</span>
+      </div>
+      <div class="gradient__btn gradient__btn-7">
+         <i class="fa fa-support"></i>
+         <span>Support</span>
+      </div>
+      <div class="gradient__btn gradient__btn-8">
+          <i class="fa fa-print"></i>
+         <span>Print</span>
+      </div>
+      <div class="gradient__btn gradient__btn-9">
+          <i class="fa fa-pause"></i>
+          <span>Pause</span>
+      </div>
+      <div class="gradient__btn gradient__btn-10">
+          <i class="fa fa-play"></i>
+          <span>Play</span>
+      </div>
+      <div class="gradient__btn gradient__btn-11">
+          <i class="fa fa-stop"></i>
+          <span>Stop</span>
+      </div>
+     <div class="gradient__btn gradient__btn-12">
+          <i class="fa fa-forward"></i>
+          <span>Forward</span>
+      </div>
+     <div class="gradient__btn gradient__btn-13">
+          <i class="fa fa-check"></i>
+          <span>Check</span>
+      </div>
+      <div class="gradient__btn gradient__btn-14">
+          <i class="fa fa-heart"></i>
+          <span>Like</span>
+      </div>
+    </div>
+  
+    <div class="gradient__row gradient__row--style-2">
+      <div class="gradient__btn gradient__btn-15">Click Here</div>
+      <div class="gradient__btn gradient__btn-16">Update</div>
+      <div class="gradient__btn gradient__btn-17">Play Now</div>
+      <div class="gradient__btn gradient__btn-18">Read More</div> 
+    </div>
+  
+    <div class="gradient__row gradient__row--style-3">
+      <div class="gradient__btn gradient__btn-19">Subscribe</div>
+      <div class="gradient__btn gradient__btn-20">Contact Us</div>
+      <div class="gradient__btn gradient__btn-21">Buy Now</div>
+      <div class="gradient__btn gradient__btn-22">Buy Now</div>
+    </div>
+</div>
+</body>
+</html>
