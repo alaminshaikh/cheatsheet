@@ -1,0 +1,20 @@
+const data = {
+  key1: 'value1',
+  key2: 'value2'
+};
+
+fetch('https://api.example.com/post', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(data)
+})
+  .then(response => {
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return response.json();
+  })
+  .then(data => console.log(data))
+  .catch(error => console.error('Error:', error));
