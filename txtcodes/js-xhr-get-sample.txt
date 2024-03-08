@@ -1,0 +1,43 @@
+var xhr = new XMLHttpRequest();
+var url = 'backend/get-products.php'; // Replace this with your API endpoint
+let res;
+xhr.open('GET', url, true);
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+            res = JSON.parse(xhr.responseText);
+            // console.log(res);
+            document.getElementById("products").innerHTML = "";
+            for (var i = 0; i < res.length; i++) {
+                var id = res[i].id;
+                var title = res[i].title;
+                var sub_title = res[i].sub_title;
+                var description = res[i].description;
+                var imglink = res[i].imglink;
+                var old_price = res[i].old_price;
+                var price = res[i].price;
+
+                document.getElementById("products").innerHTML += 
+                `<div id="prd-${id}" class="pr-card">
+                <img class="pr-img" loading="lazy" src="uploads/products/${imglink}" alt="${title}">
+                <span style="flex: 1;"></span>
+                <span class="title">${title}</span>
+                <span class="sub-title">${sub_title}</span>
+                <div class="price-add">
+                    <span class="price-label">Price: </span>
+                    <span class="strike">₹${old_price}</span>
+                    <span class="real">₹${price}</span>
+                </div>
+                <span onclick="addToCart(${i})" class="add-cart"><i class="fa-solid fa-cart-shopping"></i>&nbsp;&nbsp;Add to cart</span>
+            </div>`;
+            }
+            if(res.error !== undefined){
+                document.getElementById("products").innerHTML += res.error;
+            }
+        } else {
+            // Handle errors or other status codes
+            console.error('Error fetching data:', xhr.status);
+        }
+    }
+};
+xhr.send();
