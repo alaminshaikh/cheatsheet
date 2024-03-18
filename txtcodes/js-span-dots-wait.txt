@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+
+</style>
+</head>
+<body>
+
+<span id="dots-wait"></span>
+
+<script>
+function updateDots() {
+    var span = document.getElementById('dots-wait');
+    var text = span.textContent;
+    if (text === '.') {
+        span.textContent = '..';
+    } else if (text === '..') {
+        span.textContent = '...';
+    } else if (text === '...') {
+        span.textContent = '.';
+    } else {
+        span.textContent = '.';
+    }
+}
+
+setInterval(updateDots, 500);
+
+</script>
+
+</body>
+</html>
