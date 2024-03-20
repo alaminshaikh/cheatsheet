@@ -1,0 +1,23 @@
+function getValues() {
+    var value1 = 10;
+    var value2 = "Hello";
+    return { 
+        val1: value1,
+        val2: value2
+    };
+}
+
+var result = getValues();
+console.log(result.val1); // Output: 10
+console.log(result.val2); // Output: Hello
+
+
+function getValues() {
+    var value1 = 10;
+    var value2 = "Hello";
+    return [value1, value2];
+}
+
+var result = getValues();
+console.log(result[0]); // Output: 10
+console.log(result[1]); // Output: Hello

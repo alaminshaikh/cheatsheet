@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Input Typing Event</title>
+</head>
+<body>
+
+<input type="text" id="myInput">
+
+<script>
+  // Get the input element
+  var inputElement = document.getElementById("myInput");
+
+  // Add event listener for the "input" event
+  inputElement.addEventListener("input", function(event) {
+    // This function will be called whenever the user types into the input field
+    console.log("User typed:", event.target.value);
+    // You can perform any actions you want here
+  });
+</script>
+
+</body>
+</html>

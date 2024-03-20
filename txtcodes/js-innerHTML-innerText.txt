@@ -1,0 +1,23 @@
+<p id="myParagraph">This is some text.</p>
+
+<div id="myDiv">
+  <p>This is some content.</p>
+</div>
+
+<script>
+  var paragraph = document.getElementById("myParagraph");
+  var div = document.getElementById("myDiv");
+  
+  // Example of innerText
+  console.log(paragraph.innerText); // Output: This is some text.
+
+  // Example of innerHTML
+  console.log(div.innerHTML); // Output: <p>This is some content.</p>
+
+  // Example of outerHTML
+  console.log(div.outerHTML); // Output: <div id="myDiv"><p>This is some content.</p></div>
+</script>
+
+//change
+var element = document.getElementById("myElement");
+element.outerHTML = "<div id='newElement'>New content</div>";
