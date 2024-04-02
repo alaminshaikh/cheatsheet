@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Radio Button Event Example</title>
+  <script>
+    function handleRadioButtonEvent() {
+      var selectedOption = document.querySelector('input[name="option"]:checked').value;
+      alert("Selected option: " + selectedOption);
+    }
+  </script>
+</head>
+<body>
+
+  <h2>Select an Option:</h2>
+  
+  <input type="radio" name="option" value="Option 1" onclick="handleRadioButtonEvent()"> Option 1<br>
+  <input type="radio" name="option" value="Option 2" onclick="handleRadioButtonEvent()"> Option 2<br>
+  <input type="radio" name="option" value="Option 3" onclick="handleRadioButtonEvent()"> Option 3<br>
+  
+</body>
+</html>
