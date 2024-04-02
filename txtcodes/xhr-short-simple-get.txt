@@ -1,0 +1,15 @@
+var xhr = new XMLHttpRequest();
+var url = 'backend/get-stats.php'; // Replace this with your API endpoint
+let stat;
+xhr.open('GET', url, true);
+xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+        if (xhr.status === 200) {
+            stat = JSON.parse(xhr.responseText);
+            
+        } else {
+            console.error('Error fetching data:', xhr.status);
+        }
+    }
+};
+xhr.send();

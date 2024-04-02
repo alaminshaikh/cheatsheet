@@ -1,0 +1,15 @@
+// Example array
+let arr = [1, 2, 3, 4, 5];
+
+// Function to insert element into array if not already present
+function insertIfNotPresent(arr, element) {
+    if (!arr.includes(element)) {
+        arr.push(element);
+    }
+}
+
+// Test cases
+insertIfNotPresent(arr, 3); // 3 already exists, so it won't be inserted
+insertIfNotPresent(arr, 6); // 6 doesn't exist, so it will be inserted
+
+console.log(arr); // Output: [1, 2, 3, 4, 5, 6]
