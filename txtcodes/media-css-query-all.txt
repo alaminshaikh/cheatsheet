@@ -1,0 +1,15 @@
+/* CSS for Mobile Devices */
+@media only screen and (max-width: 767px) {
+    /* Add your CSS rules for mobile devices here */
+}
+
+/* CSS for Tablet Devices */
+@media only screen and (min-width: 768px) and (max-width: 1024px) {
+    /* Add your CSS rules for tablet devices here */
+}
+
+/* CSS for Desktop Devices */
+@media only screen and (min-width: 1025px) {
+    /* Add your CSS rules for desktop devices here */
+    /* You can adjust styles for desktops if needed */
+}
