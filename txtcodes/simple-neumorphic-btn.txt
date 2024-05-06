@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Neumorphic Button</title>
+<style>
+    .neumorphic-button {
+    	font-family: Arial;
+        display: inline-block;
+        padding: 15px 30px;
+        border: none;
+        border-radius: 10px;
+        background: linear-gradient(145deg, #e0e0e0, #ffffff);
+        box-shadow:  4px 4px 8px #bebebe,
+                    -4px -4px 8px #ffffff;
+        transition: all 0.3s ease;
+        font-size: 16px;
+        color: #333333;
+        text-decoration: none;
+        cursor: pointer;
+    }
+
+    .neumorphic-button:hover {
+        box-shadow:  6px 6px 12px #bebebe,
+                    -6px -6px 12px #ffffff;
+    }
+</style>
+</head>
+<body>
+
+<a href="#" class="neumorphic-button">Click Me</a>
+
+</body>
+</html>

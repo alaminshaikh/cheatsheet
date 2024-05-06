@@ -1,0 +1,33 @@
+function validate(){
+    // var wtsap = document.getElementById("wtsap").value;
+    // var gotra = document.getElementById("gotra").value;
+    // var email = document.getElementById("email").value;
+    // var wish = document.getElementById("wish").value;
+    
+    // if(wtsap == "" || gotra == "" || email == "" || wish == ""){
+    //     document.getElementById("validation").style.display = "block";
+    //     document.getElementById("wtsap").reportValidity();
+    //     document.getElementById("gotra").reportValidity();
+    //     document.getElementById("email").reportValidity();
+    //     document.getElementById("wish").reportValidity();
+    // }else{
+    //     document.getElementById("payBtn").click();
+    // }
+    let isValid = true;
+    let form = document.getElementById("bookingForm");
+    let inputs = form.querySelectorAll("[required]");
+    inputs.forEach(function(input) {
+        if (input.value.trim() === "") {
+            isValid = false;
+            input.style.border = "1px solid red";
+        }else{
+            input.style.border = "1px solid #ddd";
+        }
+    });
+    if (isValid) {
+        document.getElementById("payBtn").click();
+        document.getElementById("validation").style.display = "none";
+    } else {
+        document.getElementById("validation").style.display = "block";
+    }
+}

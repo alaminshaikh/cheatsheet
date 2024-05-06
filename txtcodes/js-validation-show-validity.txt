@@ -1,0 +1,20 @@
+<form id="myForm">
+  <input type="text" id="myInput" required>
+  <button type="submit">Submit</button>
+</form>
+
+<script>
+document.getElementById('myForm').addEventListener('submit', function(event) {
+  var input = document.getElementById('myInput');
+  
+  if (!input.checkValidity()) {
+    // If the input is invalid, prevent the form submission
+    event.preventDefault();
+    
+    // Display a custom validation message
+    var validationMessage = 'This field is required.';
+    input.setCustomValidity(validationMessage);
+    input.reportValidity();
+  }
+});
+</script>

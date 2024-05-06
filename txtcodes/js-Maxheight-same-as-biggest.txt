@@ -1,0 +1,13 @@
+var boxes = document.querySelectorAll('.pujs-grid .grid-item');
+  
+// Find the maximum height among all elements
+      var maxHeight = 0;
+      boxes.forEach(function(box) {
+        var height = box.clientHeight;
+        maxHeight = Math.max(maxHeight, height);
+      });
+      
+      // Set the height of all elements to the maximum height found
+      boxes.forEach(function(box) {
+        box.style.height = (maxHeight+30) + 'px';
+      });

@@ -1,0 +1,8 @@
+.seven h1::after, .seven h1::before {
+  content: " ";
+  display: block;
+  border-bottom: 1px solid #c50000;
+  border-top: 1px solid #c50000;
+  height: 5px;
+  background-color: #f8f8f8;
+}

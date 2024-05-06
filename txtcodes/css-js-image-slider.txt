@@ -1,0 +1,31 @@
+.pujs-grid .grid-item img{
+        height: 350px; 
+        border-radius: 15px;
+        transition: opacity 1s ease-in-out;
+    }
+<img id="mainImage" src="admin/uploads/<?= $puja['pic']; ?>" alt="<?= $puja['puja_name']; ?>">
+<script>
+const images = [
+    "admin/uploads/<?= $puja['pic']; ?>",
+    "admin/uploads/<?= $puja['pic2']; ?>",
+    "admin/uploads/<?= $puja['pic3']; ?>"
+];
+let currentImageIndex = 0;
+const mainImage = document.getElementById('mainImage');
+
+function changeImage() {
+    mainImage.style.opacity = 0;
+    setTimeout(function() {
+        currentImageIndex = (currentImageIndex + 1) % images.length;
+        const nextImage = new Image();
+        nextImage.onload = function() {
+            mainImage.src = nextImage.src;
+            mainImage.style.opacity = 1;
+        };
+        nextImage.src = images[currentImageIndex];
+    }, 500); 
+}
+
+setInterval(changeImage, 10000);
+setTimeout(changeImage, 10000);
+</script>
