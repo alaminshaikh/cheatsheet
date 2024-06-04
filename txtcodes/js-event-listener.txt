@@ -1,0 +1,6 @@
+function beforeLogout(){
+    modalShow("CONFIRM","Please confirm that you want to logout?","flex");
+    getid("modal-yes").addEventListener("click", function() {
+        logout(20);
+    });
+}

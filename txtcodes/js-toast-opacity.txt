@@ -1,0 +1,35 @@
+ 	#toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: #fff;
+            padding: 10px 20px;
+            border-radius: 5px;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .hide {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+	<button onclick="showToast()">Show Toast</button>
+    	<div id="toast" class="hide">
+        	This is a toast message.
+    	</div>
+
+	function showToast() {
+            var toast = document.getElementById("toast");
+            toast.classList.remove("hide");
+            setTimeout(function() {
+                toast.classList.add("hide");
+            }, 3000); // Hide the toast after 3 seconds
+        }
+
+    left: 50%;: This CSS property positions the element horizontally by pushing it 50% from the left edge of its containing element (in this case, the viewport or the nearest positioned ancestor). This means the element's left edge will be halfway across the width of its containing element.
+
+    transform: translateX(-50%);: This CSS transform function moves the element horizontally by -50% of its own width. Since the element's left edge is already positioned 50% from the left of its containing element due to left: 50%;, applying translateX(-50%); moves the element's center horizontally to the exact center of its containing element.
+
+Together, these two properties horizontally center the element with respect to its containing element, ensuring that it is positioned exactly in the middle horizontally. This is a common technique for centering elements horizontally, especially when their width is unknown or variable.

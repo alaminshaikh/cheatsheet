@@ -1,0 +1,11 @@
+function validateForm() {
+        var form = document.getElementById("donation-form");
+        if (form.checkValidity()) {
+            // All fields are valid, run your function here
+            payment();
+            return true;
+        } else {
+            form.reportValidity();
+            return false;
+        }
+    }
