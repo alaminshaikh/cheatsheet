@@ -1,0 +1,65 @@
+function validate() {
+    let isValid = true;
+    let form = document.getElementById("member_form");
+    let inputs = form.querySelectorAll("[required]");
+    
+    inputs.forEach(function(input) {
+        if (input.type === "radio") {
+            // Check if at least one radio button in the group is checked
+            let radioGroupName = input.getAttribute("name");
+            let radioGroup = form.querySelectorAll(`[name="${radioGroupName}"]`);
+            let radioChecked = false;
+            radioGroup.forEach(function(radioButton) {
+                if (radioButton.checked) {
+                    radioChecked = true;
+                }
+            });
+            if (!radioChecked) {
+                isValid = false;
+                radioGroup.forEach(function(radioButton) {
+                    radioButton.setCustomValidity("Please select at least one option.");
+                    radioButton.classList.add("invalid");
+                });
+            } else {
+                radioGroup.forEach(function(radioButton) {
+                    radioButton.setCustomValidity("");
+                    radioButton.classList.remove("invalid");
+                });
+            }
+        } else {
+            // For other input types
+            if (input.value.trim() === "") {
+                input.setCustomValidity("This field is required.");
+                input.classList.add("invalid");
+                input.setAttribute("placeholder", "This field is required");
+                isValid = false;
+            } else {
+                input.setCustomValidity("");
+                input.classList.remove("invalid");
+                input.removeAttribute("placeholder");
+            }
+        }
+    });
+    
+    form.reportValidity();
+
+    if (isValid) {
+        phone_aadhar_check();
+        // handleSubmit();
+        // payment();
+        // document.getElementById("validation").style.display = "none";
+    } else {
+        document.getElementById("validation").style.display = "block";
+    }
+}
+
+// CSS class to highlight invalid inputs
+document.addEventListener("DOMContentLoaded", function() {
+    let style = document.createElement("style");
+    style.innerHTML = `
+        .invalid {
+            border: 2px solid red;
+        }
+    `;
+    document.head.appendChild(style);
+});
